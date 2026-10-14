@@ -30,10 +30,6 @@ export default function Header() {
             ПН–СБ с 9:00 до 20:00
           </p>
 
-          <a className="header-phone" href="tel:+73512200000" aria-label="Позвонить в клинику">
-            ☎
-          </a>
-
           <a className="appointment-button" href="#appointment">
             Записаться
           </a>

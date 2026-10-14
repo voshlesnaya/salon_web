@@ -3,6 +3,8 @@ import "./components/Header.css";
 import "./components/Footer.css";
 import "./components/Hero.css";
 import "./components/Services.css";
+import "./components/SurgeryHighlight.css";
+import "./components/ShowcaseSections.css";
 import "./globals.css";
 
 export const metadata: Metadata = {

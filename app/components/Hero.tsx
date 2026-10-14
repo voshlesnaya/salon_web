@@ -37,7 +37,7 @@ export default function Hero() {
       </div>
 
       <a className="hero-call" href="tel:+73512200000" aria-label="Позвонить в клинику">
-        <span aria-hidden="true">☎</span>
+        <Image src="/icon-phone.svg" alt="" width={36} height={36} aria-hidden="true" />
       </a>
     </section>
   );
