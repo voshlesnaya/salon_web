@@ -18,7 +18,7 @@ export default function Header() {
           <a href="#about">О клинике</a>
           <a href="#services">Услуги</a>
           <a href="#specialists">Специалисты</a>
-          <a href="#offers">Акции</a>
+          <a href="/offers">Акции</a>
           <a href="#documents">Документы</a>
           <a href="#contacts">Контакты</a>
         </nav>
