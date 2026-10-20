@@ -30,31 +30,56 @@ const visibleCards = allCards.slice(
         ))}
       </div>
 
-      <div className="pagination">
-        <button
-          onClick={() => setPage(page - 1)}
-          disabled={page === 1}
-        >
-          ←
-        </button>
+        <div className="pagination">
+  <button
+    onClick={() => setPage(page - 1)}
+    disabled={page === 1}
+  >
+    ←
+  </button>
 
-        {Array.from({ length: totalPages }, (_, index) => (
-          <button
-            key={index}
-            onClick={() => setPage(index + 1)}
-            className={page === index + 1 ? "active" : ""}
-          >
-            {index + 1}
-          </button>
-        ))}
+  {Array.from({ length: Math.min(3, totalPages) }, (_, index) => {
+    let pageNumber: number;
 
-        <button
-          onClick={() => setPage(page + 1)}
-          disabled={page === totalPages}
-        >
-          →
-        </button>
-      </div>
+    if (page <= 2) {
+      pageNumber = index + 1;
+    } else if (page >= totalPages - 1) {
+      pageNumber = totalPages - 2 + index;
+    } else {
+      pageNumber = page - 1 + index;
+    }
+
+    return (
+      <button
+        key={pageNumber}
+        onClick={() => setPage(pageNumber)}
+        className={page === pageNumber ? "active" : ""}
+      >
+        {pageNumber}
+      </button>
+    );
+  })}
+
+  {totalPages > 4 && page < totalPages - 2 && (
+    <span>...</span>
+  )}
+
+  {totalPages > 3 && page < totalPages - 1 && (
+    <button
+      onClick={() => setPage(totalPages)}
+      className={page === totalPages ? "active" : ""}
+    >
+      {totalPages}
+    </button>
+  )}
+
+  <button
+    onClick={() => setPage(page + 1)}
+    disabled={page === totalPages}
+  >
+    →
+  </button>
+</div>
     </div>
   );
 }
