@@ -5,7 +5,10 @@ import "./components/Hero.css";
 import "./components/Services.css";
 import "./components/SurgeryHighlight.css";
 import "./components/ShowcaseSections.css";
+import "./components/currentPageName.css"
+import "./offers/components/cards.css"
 import "./globals.css";
+
 
 export const metadata: Metadata = {
   title: "Арт-Медика — медико-косметологический центр",

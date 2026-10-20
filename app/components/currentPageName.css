@@ -1,0 +1,12 @@
+.currentPageName{
+  position: absolute;
+  color: #8fb6db;
+  font-size: 40px;
+  font-weight: 400;
+  letter-spacing: -0.04em;
+  transition: color .2s ease, transform .2s ease;
+}
+.currentPageName:hover{
+    cursor: pointer;
+    color: #5d91c4; transform: translateX(3px);
+}
