@@ -3,9 +3,17 @@
 import { useState } from "react";
 import { allCards } from "./cards";
 import Card from "./card";
+import { useRouter, useSearchParams } from "next/navigation";
 
 export default function CardsList() {
- const [page, setPage] = useState(1);
+ const router = useRouter();
+const searchParams = useSearchParams();
+
+const page = Number(searchParams.get("page")) || 1;
+
+function changePage(newPage: number) {
+  router.push(`?page=${newPage}`, { scroll: false });
+}
 
 const cardsPerPage = 4;
 const totalPages = Math.ceil(allCards.length / cardsPerPage);
@@ -16,8 +24,8 @@ const visibleCards = allCards.slice(
 );
 
   return (
-    <div>
-      <div className="cards">
+    <div className="mt-10">
+      <div className="cards" key={page}>
         {visibleCards.map((card) => (
           <Card
             key={card.id}
@@ -28,11 +36,12 @@ const visibleCards = allCards.slice(
             date={card.date}
           />
         ))}
-      </div>
+    </div>
+    
 
         <div className="pagination">
   <button
-    onClick={() => setPage(page - 1)}
+    onClick={() => changePage(page - 1)}
     disabled={page === 1}
   >
     ←
@@ -52,7 +61,7 @@ const visibleCards = allCards.slice(
     return (
       <button
         key={pageNumber}
-        onClick={() => setPage(pageNumber)}
+        onClick={() => changePage(pageNumber)}
         className={page === pageNumber ? "active" : ""}
       >
         {pageNumber}
@@ -61,12 +70,14 @@ const visibleCards = allCards.slice(
   })}
 
   {totalPages > 4 && page < totalPages - 2 && (
-    <span>...</span>
+    <span className="w-15 h-15 bg-[#F4F7FF] rounded-md pt-3 text-center">
+      ...
+    </span>
   )}
 
   {totalPages > 3 && page < totalPages - 1 && (
     <button
-      onClick={() => setPage(totalPages)}
+      onClick={() => changePage(totalPages)}
       className={page === totalPages ? "active" : ""}
     >
       {totalPages}
@@ -74,7 +85,7 @@ const visibleCards = allCards.slice(
   )}
 
   <button
-    onClick={() => setPage(page + 1)}
+    onClick={() => changePage(page + 1)}
     disabled={page === totalPages}
   >
     →

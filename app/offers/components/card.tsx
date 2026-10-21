@@ -15,7 +15,7 @@ export default function Card({
 }: CardProps) {
   return (
     <div className="card">
-        <p>{mini_title}</p>
+        <p>Акции / {mini_title}</p>
       <img src={image} alt={title} />
       <h2>{title}</h2>
       <p>{description}</p>

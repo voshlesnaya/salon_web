@@ -7,14 +7,16 @@ import CardsList from "./components/cardsList";
 
 export default function Offers(){
     return(
-    <>
+    <div>
         <Header/>
+        <div className="mb-24 ml-24 mr-24">
         <NavigationClue currentPage="Акции"/>
         <CurrentPageName currentPage="Акции"/>
         <About/>
         <CardsList/>
+         </div>
         <Footer/>
-    </>
+    </div>
         
     )
 }
